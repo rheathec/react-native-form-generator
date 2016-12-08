@@ -58,11 +58,22 @@ import {Field} from './Field';
       }
       this.props.onPress && this.props.onPress(event);
     }
-    
+
     render(){
+
+      let dateString = '';
+      if(this.state.date){
+        dateString = this.props.dateFormatter ? this.props.dateFormatter(this.state.date) : this.state.date.toLocaleDateString();
+      }
+
       let placeholderComponent = (this.props.placeholderComponent)
                         ? this.props.placeholderComponent
                         : <Text style={[formStyles.fieldText, this.props.placeholderStyle]}>{this.props.placeholder}</Text>
+
+      let valueContainer=<View style={[formStyles.horizontalContainer, this.props.valueContainerStyle]}>
+        <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>{dateString}</Text>
+      </View>;
+
       return(<View><Field
         {...this.props}
         ref='inputBox'
@@ -75,15 +86,8 @@ import {Field} from './Field';
             ? this.props.iconLeft
             : null
           }
-          {placeholderComponent}
-          <View style={[formStyles.alignRight, formStyles.horizontalContainer]}>
-            <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>{
-            (this.state.date)?this.state.date.toLocaleDateString():""
-          }</Text>
-
-
-          </View>
-		  {(this.props.iconRight)
+          {this.state.date ? valueContainer : placeholderComponent}
+          {(this.props.iconRight)
               ? this.props.iconRight
               : null
           }
@@ -121,9 +125,6 @@ import {Field} from './Field';
       form:{
 
       },
-      alignRight:{
-         marginTop: 7, position:'absolute', right: 10
-      },
       noBorder:{
         borderTopWidth: 0,
         borderBottomWidth: 0
@@ -150,7 +151,6 @@ import {Field} from './Field';
       },
       horizontalContainer:{
         flexDirection: 'row',
-
         justifyContent: 'flex-start'
       },
       fieldContainer:{
