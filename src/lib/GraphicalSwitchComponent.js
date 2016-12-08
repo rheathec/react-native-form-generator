@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-let { View, StyleSheet, Text, Switch} = require('react-native');
+let { View, StyleSheet, Text, Switch, Image, TouchableOpacity} = require('react-native');
 
 import {Field} from './Field';
 
@@ -31,18 +31,32 @@ export class GraphicalSwitchComponent extends React.Component{
     if(this.props.onValueChange) this.props.onValueChange(value);
   }
 
+  leftPressed(){
+    this.handleValueChange(this.props.leftValue);
+  }
+
+  rightPressed(){
+    this.handleValueChange(this.props.rightValue);
+  }
 
   render(){
 
     return(<Field {...this.props}>
-      <View style={this.props.containerStyle}
+      <View style={[formStyles.verticalContainer, this.props.containerStyle]}
         onLayout={this.handleLayoutChange.bind(this)}>
 
-        <Text style={this.props.labelStyle}>{this.props.label}</Text>
-          <Switch
-          onValueChange={this.handleValueChange.bind(this)}
-          style={this.props.switchStyle}
-          value={this.state.value} />
+        <Text style={[this.props.labelStyle]}>{this.props.label}</Text>
+
+        <View style={[formStyles.imagesContainerStyle]}>
+          <TouchableOpacity onPress={this.leftPressed.bind(this)}>
+            <Image style={[formStyles.images, this.state.value === this.props.leftValue ? {opacity: 1}: {opacity: 0.5}]} source={this.props.images.left}></Image>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.rightPressed.bind(this)}>
+            <Image style={[formStyles.images, this.state.value === this.props.rightValue ? {opacity: 1}: {opacity: 0.5}]} source={this.props.images.right}></Image>
+          </TouchableOpacity>
+        </View>
+
       </View>
 
     </Field>
@@ -89,9 +103,24 @@ GraphicalSwitchComponent.propTypes = {
       // borderTopColor: '#afafaf',
       // borderTopWidth: 1,
     },
+    imagesContainerStyle:{
+      flexDirection: 'row',
+      justifyContent: 'center'
+    },
+
+    images:{
+      width: 100,
+      height: 100,
+      margin: 20,
+      resizeMode: 'contain'
+    },
+
     horizontalContainer:{
       flexDirection: 'row',
-
+      justifyContent: 'flex-start'
+    },
+    verticalContainer:{
+      flexDirection: 'column',
       justifyContent: 'flex-start'
     },
     fieldContainer:{

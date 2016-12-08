@@ -13,10 +13,10 @@ export class GraphicalSwitchField extends React.Component{
 
     return(<GraphicalSwitchComponent
       {...this.props}
-      ref='fieldComponent'
+      ref='graphicalFieldComponent'
       containerStyle={[
         formStyles.fieldContainer,
-        formStyles.horizontalContainer,
+        formStyles.verticalContainer,
         this.props.containerStyle
       ]}
 
@@ -39,15 +39,11 @@ export class GraphicalSwitchField extends React.Component{
 
   let formStyles = StyleSheet.create({
     fieldContainer:{
-      borderBottomWidth: 1,
-      borderBottomColor: '#C8C7CC',
-      backgroundColor: 'white',
       justifyContent: 'center',
-      height: 45
+      height: 160,
     },
-    horizontalContainer:{
-      flexDirection: 'row',
-
+    verticalContainer:{
+      flexDirection: 'column',
       justifyContent: 'flex-start'
     },
 
