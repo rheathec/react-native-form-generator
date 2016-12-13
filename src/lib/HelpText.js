@@ -10,8 +10,8 @@ export class HelpText extends React.Component{
   render(){
     if(!this.props.text) return null;
     return (
-      <View style={formStyles.helpTextContainer}>
-        <Text style={formStyles.helpText}>{this.props.text}</Text>
+      <View style={[formStyles.helpTextContainer, this.props.helpTextContainerStyle]}>
+        <Text style={[formStyles.helpText, this.props.helpTextStyle]}>{this.props.text}</Text>
     </View>);
   }
 }

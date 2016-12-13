@@ -9,7 +9,7 @@ export class Field extends React.Component{
     let fieldHelpText =
       this.props.helpTextComponent
       || ((this.props.helpText)
-          ? <HelpText text={this.props.helpText} />
+          ? <HelpText text={this.props.helpText} helpTextContainerStyle={this.props.helpTextContainerStyle} helpTextStyle={this.props.helpTextStyle}/>
           : null);
 
     if(this.props.onPress){
