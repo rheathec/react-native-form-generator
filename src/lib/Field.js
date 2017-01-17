@@ -13,7 +13,7 @@ export class Field extends React.Component{
           : null);
 
     if(this.props.onPress){
-      return <TouchableHighlight onPress={this.props.onPress}>
+      return <TouchableHighlight underlayColor={this.props.underlayColor} onPress={this.props.onPress}>
         <View>
           {this.props.children}
           {fieldHelpText}
@@ -30,7 +30,12 @@ export class Field extends React.Component{
 }
 Field.propTypes = {
   helpTextComponent: React.PropTypes.element,
-  helpText: React.PropTypes.string
+  helpText: React.PropTypes.string,
+  underlayColor: React.PropTypes.string,
+}
+
+Field.defaultProps = {
+  underlayColor: '#fff0',
 }
 
 
