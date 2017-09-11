@@ -43,7 +43,7 @@ export class CircularSwitchRadioComponent extends React.Component{
 
 
             <TouchableOpacity onPress={this.toggleValue.bind(this)} style={formStyles.circleBorder}>
-              {this.state.value && <View style={formStyles.circleBody}></View>}
+              {(this.props.firstTrue ? this.state.value : !this.state.value) && <View style={formStyles.circleBody}></View>}
             </TouchableOpacity>
 
             <TouchableOpacity onPress={this.toggleValue.bind(this)} style={formStyles.labelContainer}>
@@ -55,7 +55,7 @@ export class CircularSwitchRadioComponent extends React.Component{
 
           <View style={[formStyles.container, this.props.containerStyle]} onLayout={this.handleLayoutChange.bind(this)}>
             <TouchableOpacity onPress={this.toggleValue.bind(this)} style={formStyles.circleBorder}>
-              {!this.state.value && <View style={formStyles.circleBody}></View>}
+              {(this.props.firstTrue ? !this.state.value : this.state.value) && <View style={formStyles.circleBody}></View>}
             </TouchableOpacity>
 
             <TouchableOpacity onPress={this.toggleValue.bind(this)} style={formStyles.labelContainer}>
