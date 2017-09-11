@@ -13,7 +13,7 @@ export class CircularSwitchField extends React.Component{
 
     return(<CircularSwitchComponent
         {...this.props}
-        ref='circularSwitchFieldComponent'
+        ref='fieldComponent'
         containerStyle={[
           this.props.containerStyle
         ]}
