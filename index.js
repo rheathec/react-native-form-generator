@@ -11,11 +11,11 @@ import {CircularSwitchRadioField} from "./src/fields/CircularSwitchRadioField";
 import {PickerField} from "./src/fields/PickerField";
 import {DatePickerField} from "./src/fields/DatePickerField";
 import {TimePickerField} from "./src/fields/TimePickerField";
-
+import {Field} from "./src/lib/Field";
 
 //import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 export {
-  Form, GraphicalSwitchField, CircularSwitchField, CircularSwitchRadioField,
+  Form, Field, GraphicalSwitchField, CircularSwitchField, CircularSwitchRadioField,
   Separator, InputField, LinkField,
   SwitchField, PickerField, DatePickerField,
   TimePickerField
