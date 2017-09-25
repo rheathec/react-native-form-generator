@@ -8,6 +8,7 @@ import {LinkField} from "./src/fields/LinkField";
 import {DatePickerField} from "./src/fields/DatePickerField";
 import {Form} from "./src/Form";
 import {KeyboardAwareScrollView} from "./src/KeyboardAwareScrollView";
+import {Field} from "./src/lib/Field";
 //import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 export {
   InputField, SwitchField,
@@ -16,5 +17,5 @@ export {
   GraphicalSwitchField,
   Separator, LinkField,
   KeyboardAwareScrollView,
-  Form
+  Form, Field
 }
